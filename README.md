@@ -10,14 +10,14 @@ SQL Credentials for Deployment
 
 <b>View preloaded test data from database upon initialisation and deployment</b>
 
-##Use Cases
+## Use Cases
 - Login / Logout
 - Register Member
 - Lend Book
 - Return Book
 - View Fine Amount (The lending period is two weeks (14 days). For the delay of returning, per day 50 cents will be fined.)
 
-##Notable Features in this LMS Web Application include:
+## Notable Features in this LMS Web Application include:
 1. Collections Function
 Allows Staff members to view the complete collection of books in the library if a member inquires about the existence of a book. This includes both currently available and borrowed books in the library.
 
@@ -36,7 +36,7 @@ The Function Filter requires member details to be repeatedly entered. To increas
 6. Pay Fine
 This function assumes the Staff member is using another payment system to facilitate payments, and that fine payments for the books currently returned are completed in full. After payments, the books will be returned.
 
-##Assumptions
+## Assumptions
 - Since the Staff member is conducting Return operations, the member is assumed to immediately pay the fine when prompted.
 - After the fine is paid for, it is assumed that the member will definitely proceed with returning the book. This prevents any additional fine cumulation after this payment.
 - This application assumes that there is no need to view fine amounts until the book is being returned. Correspondingly, fines cannot be paid for until a book is returned. This is to prevent additional fine cumulation after this payment, and multiple payments.
