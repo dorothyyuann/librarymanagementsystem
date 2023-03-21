@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Payment</title>
+        <meta name="viewport" content="width=200, initial-scale=1.0"/>
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+    </h:head>
+    <body>
+        <div style="width: 50%; margin: auto;">
+        Member #{memberManagedBean.firstName} has overdue fine of $#{memberManagedBean.fine}0.
+        <br />
+        <h:form>
+            <p:commandButton value="Pay Fine to Return Books"
+                             actionListener="#{memberManagedBean.payFine()}"
+                             action="/access/home.xhtml?faces-redirect=true"
+                             onclick="PF('dlg').hide()"
+                             style="font-size:16px; font-family: 'DM Sans';
+                             margin-top: 20px; background-color:#6f4d8e; background-image:none; color:white; text-shadow:none; text-align: center;
+                             height:40px;"/>
+        </h:form>
+        </div>
+    </body>
+</html>

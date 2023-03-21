@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/layout/default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="title">
+        Return Book
+    </ui:define>
+    <ui:define name="content">
+        <h1>Collection</h1><br />
+        <subtitle>Here are all the books in the LMS right now.</subtitle>
+        <p:dataTable widgetVar="booksTable"
+                     var="book"
+                     value="#{bookManagedBean.searchResult}"
+                     resizableColumns="true"
+                     rowKey="#{book.bookId}"
+                     paginator="true" rows="10"
+                     emptyMessage="No books are currently being borrowed by User."
+                     style="font-family:'DM Sans'; border:none; margin-top: 36px;"
+                     paginatorPosition="bottom">
+
+            <p:column headerText="Title">
+                <h:outputText value="#{book.title}" />
+            </p:column>
+
+            <p:column headerText="ISBN">
+                <h:outputText value="#{book.isbn}" />
+            </p:column>
+
+            <p:column headerText="Author">
+                <h:outputText value="#{book.author}" />
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+    <ui:define name="image">
+        <img style="width:240px; position: absolute; top: 25%"
+             src="../resources/image/return.png" alt="rocket"/>
+    </ui:define>
+    <ui:define name="button">
+        <p:linkButton outcome="/access/home.xhtml?faces-redirect=true" value="Home" icon="pi pi-home"
+                      style="font-size:16px; color:white; box-shadow:none;"/>
+    </ui:define>
+    <ui:define name="logo">
+        <img style="display:inline; width:40px;padding-right:12px;"
+             src="resources/image/logo.png" alt="logo"
+             onerror="this.src='../resources/image/logo.png'"/>
+        <h1 style="display:inline;color:#FFFFFF;
+            border-bottom:0px">LMS</h1>
+    </ui:define>
+</ui:composition>

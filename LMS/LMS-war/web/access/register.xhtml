@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/layout/default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+    <ui:define name="title">
+        Register New Member
+    </ui:define>
+    <ui:define name="content">
+        <h1>Register New Member</h1><br />
+        <subtitle>For a new member to start loaning books, they must open an account.</subtitle>
+        <h:form style="margin-top: 36px;">
+            <p:growl id="growl" showDetail="true" sticky="true" for="growl"/>  
+            <h:panelGrid id="details" columns="3" cellpadding="8">
+                <p:outputLabel for="firstName" value="First Name" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <p:inputText id="firstName"
+                             required="true"
+                             value="#{registrationManagedBean.firstName}"
+                             style="font-size:20px; width:100%"/>
+                <p:message for="firstName" style="font-family: 'DM Sans'; font-size: 12px;"/>
+                <p:outputLabel for="lastName" value="Last Name" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <p:inputText id="lastName"
+                             required="true"
+                             value="#{registrationManagedBean.lastName}" style="font-size:20px; width:100%"/>
+                <p:message for="lastName" style="font-family: 'DM Sans'; font-size: 12px;"/>
+
+                <p:outputLabel for="gender" value="Gender" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <h:selectOneMenu id="gender" value="#{registrationManagedBean.gender}"
+                                 required="true"
+                                 style="font-size:16px; font:'DM Sans'; border-color:grey;">
+                    <f:selectItem itemValue="1" itemLabel="Female" />
+                    <f:selectItem itemValue="2" itemLabel="Male" />
+                    <f:selectItem itemValue="3" itemLabel="Other" />
+                </h:selectOneMenu><br/>
+
+                <p:outputLabel for="age" value="Age" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <p:inputNumber id="age"
+                               required="true"
+                               value="#{registrationManagedBean.age}" minValue="1" maxValue="100" decimalPlaces="0" style="font-size:20px;"/>
+                <p:message for="age" style="font-family: 'DM Sans'; font-size: 12px;"/>
+
+                <p:outputLabel for="idNo" value="ID Number" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <p:inputText id="idNo"
+                             required="true"
+                             value="#{registrationManagedBean.idNo}" placeholder="Enter NRIC / FIN number"
+                             style="font-size:20px; width:100%; font-family: 'DM Sans';"/>
+                <p:message for="idNo" style="font-family: 'DM Sans'; font-size: 12px;" />
+
+                <p:outputLabel for="phone" value="Mobile Number" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <p:inputNumber id="phone"
+                               minValue="1"
+                               required="true"
+                               decimalPlaces="0"
+                               thousandSeparator=""
+                               value="#{registrationManagedBean.phone}" style="font-size:20px; width:100%"/>
+                <p:message for="phone" style="font-family: 'DM Sans'; font-size: 12px;"/>
+
+                <p:outputLabel for="address" value="Address" style="font-family: 'DM Sans'; font-weight: bold"/>
+                <p:inputText id="address"
+                             required="true"
+                             value="#{registrationManagedBean.address}" placeholder="e.g., 15 Computing Dr"
+                             style="font-size:20px; width:100%; font-family: 'DM Sans';"/>
+                <p:message for="address" style="font-family: 'DM Sans'; font-size: 12px;"/>
+            </h:panelGrid>
+            <p:commandButton value="Register"
+                             actionListener="#{registrationManagedBean.createMember}"
+                             action="#{registrationManagedBean.nextPage()}"
+                             update="@form"
+                             icon="pi pi-user-plus"
+                             style="font-size:16px; margin-top: 20px; background-color:#6f4d8e; color:white; text-shadow:none; text-align: center;
+                             height:40px; float:right"/>
+        </h:form>
+
+    </ui:define>
+    <ui:define name="image">
+        <img style="width:256px; position: absolute; bottom: 45%"
+             src="../resources/image/register.png" alt="reading"/>
+    </ui:define>
+    <ui:define name="button">
+        <p:button outcome="home.xhtml" value="Home" icon="pi pi-home"
+                  style="font-size:16px; color:white; box-shadow:none" />
+    </ui:define>
+    <ui:define name="logo">
+        <img style="display:inline; width:40px;padding-right:12px;"
+             src="resources/image/logo.png" alt="logo"
+             onerror="this.src='../resources/image/logo.png'"/>
+        <h1 style="display:inline;color:#FFFFFF;
+            border-bottom:0px">LMS</h1>
+    </ui:define>
+</ui:composition>

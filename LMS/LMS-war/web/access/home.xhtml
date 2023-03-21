@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/layout/default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">
+        Library Management System (LMS)
+    </ui:define>
+    <ui:define name="content">
+        <h1>Welcome back, #{authenticationManagedBean.getName()}.</h1><br />
+        <subtitle>On this portal, you can assist new and existing members to loan and return books.</subtitle>
+        <h:form>
+            <div style="text-align:center; margin-top: 100px;">
+                <p:button outcome="register.xhtml" value="Register New Member"
+                          style="height:300px; width:240px; margin-left: 16px; margin-right: 16px; border-radius:20px;
+                          font-size:24px; background-color:#6f4d8e; color:white; text-shadow:none; vertical-align:top;" />            
+                <p:commandButton onclick="PF('lendDlg').show();" value="Lend Book"
+                                 style="height:300px; width:240px; margin-left: 16px; margin-right: 16px; border-radius:20px;
+                                 font-size:24px; background-color:#6f4d8e; color:white; text-shadow:none" />
+                <p:commandButton onclick="PF('returnDlg').show();" value="Return Book"
+                                 style="height:300px; width:240px; margin-left: 16px; margin-right: 16px; border-radius:20px;
+                                 font-size:24px; background-color:#6f4d8e; color:white; text-shadow:none" />
+            </div>
+            <p:growl id="growl" showDetail="true" sticky="true" for="growl"/>  
+            <p:dialog header="Enter Member ID" widgetVar="lendDlg" resizable="false">
+                <br />
+                <h2>ID Number</h2>
+                <span class="ui-float-label">
+                    <p:inputText required="true"
+                                 value="#{memberManagedBean.idNo}" placeholder="Enter NRIC / FIN number"
+                                 style="font-size:20px; width:100%; font-family: 'DM Sans';"/>
+                </span> <br />
+                <p:commandButton value="Continue"
+                                 actionListener="#{memberManagedBean.retrieveMemberByIdentityNo}"
+                                 action="#{memberManagedBean.nextLend()}"
+                                 update="@form"
+                                 style="font-size:16px; margin-top: 20px; background-color:#6f4d8e; background-image:none; color:white; text-shadow:none; text-align: center;
+                                 height:40px; float: right;"/>
+            </p:dialog> 
+
+        </h:form>
+        <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" for="growl"/>  
+            <p:dialog header="Enter Member ID" widgetVar="returnDlg" resizable="false">
+                <br />
+                <h2>ID Number</h2>
+                <span class="ui-float-label">
+                    <p:inputText required="true"
+                                 value="#{memberManagedBean.idNo}" placeholder="Enter NRIC / FIN number"
+                                 style="font-size:20px; width:100%; font-family: 'DM Sans';"/>
+                </span> <br />
+                <p:commandButton value="Continue"
+                                 actionListener="#{memberManagedBean.retrieveMemberByIdentityNo}"
+                                 action="#{memberManagedBean.nextReturn()}"
+                                 update="@form"
+                                 style="font-size:16px; margin-top: 20px; background-color:#6f4d8e; background-image:none; color:white; text-shadow:none; text-align: center;
+                                 height:40px; float: right;"/>
+            </p:dialog>       
+        </h:form>
+    </ui:define>
+    <ui:define name="image">
+        <img style="width:256px; position: absolute; bottom: 220px"
+             src="../resources/image/home.png" alt="home"/>
+    </ui:define>
+    <ui:define name="button">
+        <h:form>
+            <p:commandButton value="Log Out" icon="pi pi-sign-out" ajax="false"
+                             action="#{authenticationManagedBean.logout}" 
+                             style="font-size:16px; color:white; box-shadow:none;" />
+
+        </h:form>
+    </ui:define>
+    <ui:define name="logo">
+        <img style="display:inline; width:40px;padding-right:12px;"
+             src="resources/image/logo.png" alt="logo"
+             onerror="this.src='../resources/image/logo.png'"/>
+        <h1 style="display:inline;color:#FFFFFF;
+            border-bottom:0px">LMS</h1>
+    </ui:define>
+</ui:composition>

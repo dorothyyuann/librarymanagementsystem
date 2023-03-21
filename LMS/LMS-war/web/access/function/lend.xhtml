@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/layout/default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="title">
+        Lend Book
+    </ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h1>Lend Book</h1><br />
+            <subtitle>Enter the ISBN Number of the book being borrowed.</subtitle>
+            <div style="margin-top: 16px;">
+                <b style="font-size:18px;">Lending for </b>
+                <b style="font-size:18px; color: #e0552b;">#{memberManagedBean.firstName} #{memberManagedBean.lastName}</b><br />
+                <h2>ISBN Number</h2>
+            </div>
+            <div class="inline" style="width:100%">
+                <span class="ui-float-label">
+                    <p:inputText id="isbn" value="#{bookManagedBean.isbn}"
+                                 style="font-size:20px; font-family:'DM Sans'"/>
+                </span>
+                <p:commandButton value="Search" icon="pi pi-search"
+                                 action="#{bookManagedBean.retrieveBookByISBN(bookManagedBean.isbn)}"
+                                 actionListener="#{memberManagedBean.setIsbn(bookManagedBean.isbn)}"
+                                 ajax="false"
+                                 style="font-size:16px; margin-left:24px; color:black; text-shadow:none; text-align:center;
+                                 height:40px; "/>
+            </div> 
+            <h:panelGroup rendered="#{not empty bookManagedBean.title}">
+                <div id="info" style="margin-top: 36px" class="inline">
+                    <img style="width:160px; justify-content: flex-start; margin-right: 52px;"
+                         src="../../resources/image/#{bookManagedBean.isbn}.jpg"
+                         onError = "{e => e.target.style.display = 'none'}"/>
+                    <div>
+                        <h2 style="font-size: 32px; margin-bottom: 8px">Book Information</h2>
+                        <b style="font-size: 24px; margin-bottom: 0px">#{bookManagedBean.title}</b><br />
+                        <h3 style="font-size: 20px;font-weight:400; margin-top:8px">By #{bookManagedBean.author}</h3>
+                        <h3>ISBN: #{bookManagedBean.isbn}</h3>
+                    </div>
+                </div>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{empty bookManagedBean.title and not empty bookManagedBean.isbn}">
+                <br />
+                <b style="color: maroon">No book with ISBN #{bookManagedBean.isbn} found in the library.</b>
+                <br />
+                <b>The ISBN may be incorrect, or your book may be on loan at the moment.</b>
+            </h:panelGroup>
+            <p:commandButton value="Loan" icon="pi pi-check" oncomplete="PF('dlg').show()" disabled="#{empty bookManagedBean.title}"
+                             style="font-size:16px; margin-top: 20px; background-color:#6f4d8e; color:white; text-shadow:none; text-align: center;
+                             height:40px; float:right"/>
+            <p:dialog header="Confirm Loan" widgetVar="dlg">
+                <br />
+                <h2 style="font-weight: 400">Member #{memberManagedBean.firstName} #{memberManagedBean.lastName} is borrowing #{bookManagedBean.title}.</h2>
+
+                <p:commandButton value="Confirm"
+                                 actionListener="#{memberManagedBean.lendBook}"
+                                 action="/access/home.xhtml?faces-redirect=true"
+                                 style="font-size:16px; margin-top: 20px; background-color:#6f4d8e; background-image:none; color:white; text-shadow:none; text-align: center;
+                                 height:40px; float: right;"/>
+            </p:dialog>       
+        </h:form>
+    </ui:define>
+    <ui:define name="logo">
+        <img style="display:inline; width:40px;padding-right:12px;"
+             src="resources/image/logo.png" alt="logo"
+             onerror="this.src='../../resources/image/logo.png'"/>
+        <h1 style="display:inline;color:#FFFFFF;
+            border-bottom:0px">LMS</h1>
+    </ui:define>
+    <ui:define name="image">
+        <img style="width:256px; position: absolute; bottom: 50%"
+             src="../../resources/image/lend.png" alt="flag"/>
+    </ui:define>
+    <ui:define name="button">
+        <p:button outcome="/access/home.xhtml?faces-redirect=true" value="Home" icon="pi pi-home"
+                  style="font-size:16px; color:white; box-shadow:none" />
+    </ui:define>
+</ui:composition>

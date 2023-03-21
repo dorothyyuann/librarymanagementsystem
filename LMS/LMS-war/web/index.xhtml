@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./layout/default.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="title">
+        Staff Login
+    </ui:define>
+    <ui:define name="content">
+        <h1>Login</h1><br />
+        <subtitle>Welcome back! Please log in to your Staff account.</subtitle>
+        <h:form style="margin-top: 36px;">
+            <h2>Username</h2>
+            <span class="ui-float-label">
+                <p:inputText id="username" value="#{authenticationManagedBean.username}"
+                             style="font-size:20px; width:100%; font-family: 'DM Sans';"/>
+            </span>
+            <h2>Password</h2>
+            <span class="ui-float-label">
+                <p:password id="password" value="#{authenticationManagedBean.password}" style="font-size:20px; width:100%"/>
+            </span>
+            <p:commandButton value="Login" icon="pi pi-sign-in" ajax="false"
+                             action="#{authenticationManagedBean.login}"
+                             style="font-size:16px; margin-top: 20px; background-color:#6f4d8e; color:white; text-shadow:none; text-align: center;
+                             height:40px; float:right"/>
+        </h:form> 
+    </ui:define>
+    <ui:define name="image">
+        <img style="width:256px; position: absolute; bottom: 45%"
+             src="resources/image/login.png" alt="login"/>
+    </ui:define>
+    <ui:define name="button">
+    </ui:define>
+    <ui:define name="logo">
+        <img style="display:inline; width:40px;padding-right:12px;"
+             src="resources/image/logo.png" alt="logo"
+             onerror="this.src='/resources/image/logo.png'"/>
+        <h1 style="display:inline;color:#FFFFFF;
+            border-bottom:0px">LMS</h1>
+    </ui:define>
+</ui:composition>

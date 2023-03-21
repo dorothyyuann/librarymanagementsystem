@@ -1,0 +1,129 @@
+
+#top {
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+    float: left;
+    background-color: #193C71;
+    padding-top: 56px;
+    padding-bottom: 50px;
+    padding-left: 36px;
+    padding-right: 36px;
+    width: 240px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #FFFFFF;
+    padding-top: 48px;
+    padding-right: 80px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    margin-left: 300px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 00px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
+}
+
+.ui-button {
+    border: none !important;
+    font-family:'DM Sans', Arial;
+    text-shadow: none !important;
+    background:none;
+}
+
+.inline { 
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.ui-selectonemenu-label{
+    font-family: 'DM Sans', Arial;
+}
+
+.ui-paginator {
+    font-family: 'DM Sans', Arial;
+    background-image: none !important;
+    background-color: white !important;
+    border: none;
+}
+
+.ui-datatable-header{
+    background: blue;
+} 
+
+th {
+    background-color: #193C71 !important;
+    background-image: none !important;
+    color: white !important;
+    text-shadow: none !important;
+    border: none !important;
+}
+
+.ui-datatable .ui-state-highlight {
+    background-image: none;
+    background-color: #cf985d !important;
+}
+
+.ui-datatable tr.ui-datatable-even:hover, .ui-datatable tr.ui-datatable-odd:hover {
+    background: #d8d8d8;
+}
+.ui-datatable-footer {
+    background: none !important;
+    border: none!important;
+}
+
+.ui-message-icon {
+    display: none;
+}
+
+.form-center {
+  display:flex;
+  justify-content: center;
+}
