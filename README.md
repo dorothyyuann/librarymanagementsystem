@@ -1,9 +1,25 @@
 # Library Management System (LMS)
 Completed as part of <b>IS3106: Enterprise Systems Interface Design and Development</b> coursework
 
+Developed using NetBeans IDE. MySQL database. CSS / HTML Front-end. Java EE Backend.
+
+SQL Credentials for Deployment
+- Database Name: drrsdbs
+- Database user: root
+- Database password: password
+
+<b>View preloaded test data from database upon initialisation and deployment</b>
+
+Use Cases:
+- Login / Logout
+- Register Member
+- Lend Book
+- Return Book
+- View Fine Amount (The lending period is two weeks (14 days). For the delay of returning, per day 50 cents will be fined.)
+
 Notable Features in this LMS Web Application include:
 
-<li>1. Collections Function</li>
+1. Collections Function
 Allows Staff members to view the complete collection of books in the library if a member inquires about the existence of a book. This includes both currently available and borrowed books in the library.
 
 2. Search Books by ISBN
