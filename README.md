@@ -17,7 +17,7 @@ SQL Credentials for Deployment
 - Return Book
 - View Fine Amount (The lending period is two weeks (14 days). For the delay of returning, per day 50 cents will be fined.)
 
-## Notable Features in this LMS Web Application include:
+## Notable Features in this LMS Web Application
 1. Collections Function
 Allows Staff members to view the complete collection of books in the library if a member inquires about the existence of a book. This includes both currently available and borrowed books in the library.
 
