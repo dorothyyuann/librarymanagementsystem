@@ -12,9 +12,14 @@ SQL Credentials for Deployment
 
 ## Use Cases
 - Login / Logout
+![Uploading Screenshot 2023-03-29 at 12.54.26 PM.png…]()
+<img width="1440" alt="Screenshot 2023-03-29 at 12 54 34 PM" src="https://user-images.githubusercontent.com/101258725/228430778-58cb0f90-5937-4d99-b9d1-115ab2fb5488.png">
 - Register Member
+![Uploading Screenshot 2023-03-29 at 12.54.40 PM.png…]()
 - Lend Book
+![Uploading Screenshot 2023-03-29 at 12.54.51 PM.png…]()
 - Return Book
+<img width="1440" alt="Screenshot 2023-03-29 at 12 55 06 PM" src="https://user-images.githubusercontent.com/101258725/228430720-ba085e9d-fc9f-4f42-95ba-db30dd73c4f9.png">
 - View Fine Amount (The lending period is two weeks (14 days). For the delay of returning, per day 50 cents will be fined.)
 
 ## Notable Features in this LMS Web Application
