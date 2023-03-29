@@ -12,12 +12,12 @@ SQL Credentials for Deployment
 
 ## Use Cases
 - Login / Logout
-![Uploading Screenshot 2023-03-29 at 12.54.26 PM.png…]()
+<img width="1440" alt="Screenshot 2023-03-29 at 12 54 26 PM" src="https://user-images.githubusercontent.com/101258725/228430899-a1819116-2915-4bb4-88da-4d8e404d50d1.png">
 <img width="1440" alt="Screenshot 2023-03-29 at 12 54 34 PM" src="https://user-images.githubusercontent.com/101258725/228430778-58cb0f90-5937-4d99-b9d1-115ab2fb5488.png">
 - Register Member
-![Uploading Screenshot 2023-03-29 at 12.54.40 PM.png…]()
+<img width="1440" alt="Screenshot 2023-03-29 at 12 54 40 PM" src="https://user-images.githubusercontent.com/101258725/228430917-351deb86-3fe1-4c9d-aef4-722104051536.png">
 - Lend Book
-![Uploading Screenshot 2023-03-29 at 12.54.51 PM.png…]()
+<img width="1440" alt="Screenshot 2023-03-29 at 12 54 51 PM" src="https://user-images.githubusercontent.com/101258725/228430941-a18f3cb7-e002-4f76-878a-60ce22117925.png">
 - Return Book
 <img width="1440" alt="Screenshot 2023-03-29 at 12 55 06 PM" src="https://user-images.githubusercontent.com/101258725/228430720-ba085e9d-fc9f-4f42-95ba-db30dd73c4f9.png">
 - View Fine Amount (The lending period is two weeks (14 days). For the delay of returning, per day 50 cents will be fined.)
